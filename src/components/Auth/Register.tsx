@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import type { ChangeEvent } from "react";
 import type { FormEvent } from "react";
 import logo from "../../assets/productivity_logo.jpeg"; // adjust path
-import { registerUser } from '../../api/authService';
-
+import { registerUser } from "../../api/authService";
+import { Link } from "react-router-dom";
 
 interface FormData {
   name: string;
@@ -13,7 +13,8 @@ interface FormData {
   confirmPassword: string;
 }
 
-const matchPasswords = (password: string, confirmPassword:string) => password === confirmPassword 
+const matchPasswords = (password: string, confirmPassword: string) =>
+  password === confirmPassword;
 
 const Register: React.FC = () => {
   const navigate = useNavigate();
@@ -21,11 +22,11 @@ const Register: React.FC = () => {
     name: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
 
   const [error, setError] = useState<string>("");
-  
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -39,14 +40,14 @@ const Register: React.FC = () => {
       return;
     }
 
-    if(!matchPasswords(formData.password, formData.confirmPassword)){
+    if (!matchPasswords(formData.password, formData.confirmPassword)) {
       setError("Passwords do not match");
-      return
+      return;
     }
-    
+
     try {
-      setError(""); 
-      const {confirmPassword, ...payload} = formData;
+      setError("");
+      const { confirmPassword, ...payload } = formData;
       const res = await registerUser(payload);
       console.log(res);
       if (res.status === 201) {
@@ -56,12 +57,11 @@ const Register: React.FC = () => {
     } catch (err: any) {
       setError(err.message || "Something went wrong");
     }
-};
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        
         {/* Logo & Title */}
         <div className="flex items-center justify-center gap-3 mb-6">
           <img src={logo} alt="Logo" className="w-12 h-12" />
@@ -103,7 +103,7 @@ const Register: React.FC = () => {
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
-           <input
+          <input
             type="password"
             name="confirmPassword"
             placeholder="Confirm Password"
@@ -120,6 +120,12 @@ const Register: React.FC = () => {
           >
             Register
           </button>
+          <p className=" text-gray-600 text-center text-[0.90rem]">
+            Already have an account?&nbsp;
+            <a href="/login" className="text-blue-500 underline">
+                Login
+            </a>
+          </p>
         </form>
       </div>
     </div>

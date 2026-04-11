@@ -9,6 +9,7 @@ It provides an interactive user interface for features like to-do lists, Pomodor
 
 - **React**
 - **TailwindCSS**
+- **Typescript**
 - **Axios** (API requests)
 - **React Router**
 - **Context API** (state management)

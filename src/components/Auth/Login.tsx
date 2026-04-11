@@ -83,6 +83,12 @@ const Login: React.FC = () => {
           >
             Login
           </button>
+          <p className=" text-gray-600 text-center text-[0.90rem]">
+            New user?&nbsp; 
+            <a href="/register" className="text-blue-500 underline">
+               Create an account
+            </a>
+          </p>
         </form>
       </div>
     </div>
