@@ -14,16 +14,16 @@ export default function Sidebar() {
 
                 <div className="space-y-2">
                     <div className="px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                        Missions
+                        Projects
                     </div>
                     <button className="flex w-full items-center rounded-2xl px-3 py-2 text-left transition hover:bg-slate-100">
-                        All Missions
+                        All Projects
                     </button>
                     <button className="flex w-full items-center rounded-2xl px-3 py-2 text-left transition hover:bg-slate-100">
-                        Active Missions
+                        Active Projects
                     </button>
                     <button className="flex w-full items-center rounded-2xl px-3 py-2 text-left transition hover:bg-slate-100">
-                        Create Mission
+                        Create Project
                     </button>
                 </div>
 
@@ -35,7 +35,7 @@ export default function Sidebar() {
                         All Goals
                     </button>
                     <button className="flex w-full items-center rounded-2xl px-3 py-2 text-left transition hover:bg-slate-100">
-                        Goals by Mission
+                        Goals by Project
                     </button>
                     <button className="flex w-full items-center rounded-2xl px-3 py-2 text-left transition hover:bg-slate-100">
                         Create Goal
@@ -58,7 +58,7 @@ export default function Sidebar() {
             <div className="space-y-1 rounded-2xl bg-slate-50 p-4 text-sm text-slate-600">
                 <div className="font-semibold text-slate-900">Need help?</div>
                 <p className="text-xs leading-5 text-slate-500">
-                    Use Missions to group goals, then attach todo lists to each goal.
+                    Use Projects to group goals, then attach todo lists to each goal.
                 </p>
             </div>
         </nav>
