@@ -1,14 +1,24 @@
 import type { HTMLAttributes } from "react";
-import { Bell } from "lucide-react";
+import { Bell, Menu } from "lucide-react";
 type HeaderProps = HTMLAttributes<HTMLElement> & {
     notification?: number;
+    sidebarOpen?: boolean;
+    setSidebarOpen?: (open: boolean) => void;
 };
-export default function Header({className, notification=0, ...props}: HeaderProps) {
+export default function Header({className, notification=0, sidebarOpen = false, setSidebarOpen, ...props}: HeaderProps) {
     return (
         
         <header className={`flex items-center justify-between w-full h-full ${className || ''}`} {...props}>
-            {/* Left side: Logo and Title */}
-            <div className="flex items-center gap-4 ml-16">
+            {/* Left side: Hamburger + Logo and Title */}
+            <div className="flex items-center gap-4">
+                {/* Hamburger menu for mobile */}
+                <button
+                    onClick={() => setSidebarOpen?.(!sidebarOpen)}
+                    className="md:hidden p-2 text-gray-600 hover:text-gray-800 transition-colors"
+                >
+                    <Menu className="w-6 h-6" />
+                </button>
+
                 {/* Logo placeholder - you can replace with actual logo */}
                 <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-lg">P</span>
